@@ -9,8 +9,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:lead_flow/future/auth/presentation/auth_page.dart' as _i1;
-import 'package:lead_flow/future/home/home_page.dart' as _i2;
+import 'package:lead_flow/features/auth/presentation/auth_page.dart' as _i1;
+import 'package:lead_flow/features/home/home_page.dart' as _i2;
 
 /// generated route for
 /// [_i1.AuthPage]

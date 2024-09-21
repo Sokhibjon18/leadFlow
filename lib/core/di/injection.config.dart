@@ -14,8 +14,8 @@ import 'package:firebase_storage/firebase_storage.dart' as _i457;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../future/auth/data/auth_repo.dart' as _i273;
-import '../../future/auth/domain/auth_bloc.dart' as _i398;
+import '../../features/auth/data/auth_repo.dart' as _i585;
+import '../../features/auth/domain/auth_cubit.dart' as _i769;
 import 'models/firebase_model.dart' as _i912;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -34,8 +34,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i974.FirebaseFirestore>(
         () => firebaseInjectableModule.firestore);
     gh.factory<_i457.FirebaseStorage>(() => firebaseInjectableModule.storage);
-    gh.factory<_i273.AuthRepo>(() => _i273.AuthRepo(gh<_i59.FirebaseAuth>()));
-    gh.factory<_i398.AuthBloc>(() => _i398.AuthBloc(gh<_i273.AuthRepo>()));
+    gh.factory<_i769.AuthCubit>(() => _i769.AuthCubit());
+    gh.factory<_i585.AuthRepo>(() => _i585.AuthRepo(gh<_i59.FirebaseAuth>()));
     return this;
   }
 }
