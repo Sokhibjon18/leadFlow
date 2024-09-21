@@ -9,7 +9,7 @@ class TextViewParam implements ComponentParams {
   final bool isBold;
   final String? icon;
 
-  TextViewParam( {
+  TextViewParam({
     this.textColor = Colors.black,
     this.textAlign = TextAlign.center,
     this.isBold = false,
@@ -17,4 +17,9 @@ class TextViewParam implements ComponentParams {
     this.icon,
     required this.text,
   });
+
+  @override
+  String toString() {
+    return 'TextViewParam(textColor: $textColor, textAlign: $textAlign, text: $text, size: $size, isBold: $isBold, icon: $icon)';
+  }
 }

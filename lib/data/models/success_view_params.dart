@@ -11,4 +11,9 @@ class SuccessViewParams implements ComponentParams {
     required this.appUrl,
     required this.buttonColor,
   });
+
+  @override
+  String toString() {
+    return 'SuccessViewParams(appName: $appName, appUrl: $appUrl, buttonColor: $buttonColor)';
+  }
 }

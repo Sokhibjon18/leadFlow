@@ -143,7 +143,10 @@ class ComponentDTO {
           buttonColor: params.buttonColor.colorify(),
         );
       case == 'nextButton':
-        return ButtonParams(params.color.colorify(), params.secondaryColor.colorify());
+        return ButtonParams(
+          params.color.colorify(),
+          params.secondaryColor.colorify(),
+        );
       case == 'subscription':
         return SubscriptionParams(
           subscriptionOptions

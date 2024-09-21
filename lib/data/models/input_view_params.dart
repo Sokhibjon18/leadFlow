@@ -5,10 +5,15 @@ class InputViewParams implements ComponentParams {
   final String hint;
   final Color textColor;
   final Color backgroundColor;
-  
+
   InputViewParams({
     required this.hint,
     required this.textColor,
     required this.backgroundColor,
   });
+
+  @override
+  String toString() {
+    return 'InputViewParams(hint: $hint, textColor: $textColor, backgroundColor: $backgroundColor)';
+  }
 }
