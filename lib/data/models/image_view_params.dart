@@ -8,4 +8,9 @@ class ImageViewParams implements ComponentParams {
     this.cornerRadius = 16,
     required this.imageLink,
   });
+
+  @override
+  String toString() {
+    return 'ImageViewParams(cornerRadius: $cornerRadius, imageLink: $imageLink)';
+  }
 }

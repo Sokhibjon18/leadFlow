@@ -14,9 +14,14 @@ class SelectionParams implements ComponentParams {
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
     this.textAlign = TextAlign.start,
+    this.size = 16,
     this.singleSelect = true,
     required this.selectionColor,
-    required this.size,
     required this.textOptions,
   });
+
+  @override
+  String toString() {
+    return 'SelectionParams(selectionColor: $selectionColor, backgroundColor: $backgroundColor, textColor: $textColor, textAlign: $textAlign, size: $size, textOptions: $textOptions, singleSelect: $singleSelect)';
+  }
 }

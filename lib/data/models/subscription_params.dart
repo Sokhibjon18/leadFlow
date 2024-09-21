@@ -1,10 +1,14 @@
-
 import 'package:lead_flow/data/models/component_params.dart';
 
 class SubscriptionParams implements ComponentParams {
   final List<SubscriptionButtonParams> buttonParams;
 
   SubscriptionParams(this.buttonParams);
+
+  @override
+  String toString() {
+    return 'SubscriptionParams(buttonParams: $buttonParams)';
+  }
 }
 
 class SubscriptionButtonParams {
@@ -29,4 +33,9 @@ class SubscriptionButtonParams {
     this.selected,
     this.selectionColor,
   );
+
+  @override
+  String toString() {
+    return 'SubscriptionButtonParams(title: $title, priceId: $priceId, oldPrice: $oldPrice, price: $price, unit: $unit, unitInterval: $unitInterval, attention: $attention, selected: $selected, selectionColor: $selectionColor)';
+  }
 }
