@@ -1,19 +1,25 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:lead_flow/features/funnel_builder/presentation/widgets/components_view.dart';
 import 'package:lead_flow/features/funnel_builder/presentation/widgets/pages_view.dart';
 
+@RoutePage()
 class FunnelBuilderPage extends StatelessWidget {
-  const FunnelBuilderPage({super.key});
+  final String projectName;
+  const FunnelBuilderPage({super.key, required this.projectName});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF0F2F5),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
+        padding:
+            const EdgeInsets.only(top: 20, left: 16, right: 16, bottom: 16),
         child: Column(
           children: [
-            const Text('NAME', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+            Text(projectName,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
             const SizedBox(height: 16),
             Expanded(
               child: Row(

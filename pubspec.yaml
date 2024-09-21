@@ -14,17 +14,17 @@ dependencies:
   cloud_firestore: ^5.4.2
   firebase_storage: ^12.3.1
   firebase_remote_config: ^5.1.2
+  google_sign_in: ^6.2.1
   json_annotation: ^4.9.0
   injectable: ^2.4.2
   freezed_annotation: ^2.4.1
   flutter_bloc: ^8.1.6
   carousel_slider: ^4.2.1
-  dio: ^5.7.0
-  auto_size_text: ^3.0.0
+  lottie: ^3.1.0
   auto_route: ^9.2.2
   get_it: ^7.7.0
-  google_sign_in: ^6.2.1
-  lottie: ^3.1.2
+  auto_size_text: ^3.0.0
+
 
 dev_dependencies:
   flutter_test:
@@ -36,8 +36,11 @@ dev_dependencies:
   injectable_generator: ^2.6.1
   auto_route_generator: ^9.0.0
 
+
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+     - assets/images/
+     - assets/svg/
+
