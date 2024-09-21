@@ -16,6 +16,8 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../features/auth/data/auth_repo.dart' as _i585;
 import '../../features/auth/domain/auth_cubit.dart' as _i769;
+import '../../features/funnel/funnel_repository.dart' as _i718;
+import '../../features/splash/data/splash_repository.dart' as _i689;
 import 'models/firebase_model.dart' as _i912;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -35,7 +37,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => firebaseInjectableModule.firestore);
     gh.factory<_i457.FirebaseStorage>(() => firebaseInjectableModule.storage);
     gh.factory<_i769.AuthCubit>(() => _i769.AuthCubit());
+    gh.factory<_i718.FunnelRepository>(
+        () => _i718.FunnelRepository(gh<_i974.FirebaseFirestore>()));
     gh.factory<_i585.AuthRepo>(() => _i585.AuthRepo(gh<_i59.FirebaseAuth>()));
+    gh.factory<_i689.SplashRepository>(() => _i689.SplashRepository(
+          gh<_i974.FirebaseFirestore>(),
+          gh<_i59.FirebaseAuth>(),
+        ));
     return this;
   }
 }

@@ -1,13 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/subscription_params.dart';
 
 class PriceView extends StatefulWidget {
   const PriceView({
     super.key,
-    // required this.params,
+    required this.params,
   });
 
-  // final List<SubscriptionButtonParams> params;
+  final List<SubscriptionButtonParams> params;
 
   @override
   State<PriceView> createState() => _PriceViewState();

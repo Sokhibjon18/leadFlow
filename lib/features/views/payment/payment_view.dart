@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class PaymentView extends StatefulWidget {
   const PaymentView({super.key, required this.nextScreen});
 
-  final Function() nextScreen;
+  final Function(List<String>) nextScreen;
 
   @override
   State<PaymentView> createState() => _PaymentViewState();

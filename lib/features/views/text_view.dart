@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/text_view_params.dart';
 
 class TextView extends StatefulWidget {
   const TextView({
     super.key,
-    // required this.params,
+    required this.params,
   });
 
-  // final TextViewParams params;
+  final TextViewParam params;
 
   @override
   State<TextView> createState() => _TextViewState();

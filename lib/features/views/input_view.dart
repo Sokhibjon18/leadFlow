@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/input_view_params.dart';
 
 class InputView extends StatelessWidget {
-  // final InputViewParams inputViewParams;
+  final InputViewParams inputViewParams;
   final ValueChanged<String>? onChanged;
 
   const InputView({
     super.key,
-    // required this.inputViewParams,
+    required this.inputViewParams,
     this.onChanged,
   });
 

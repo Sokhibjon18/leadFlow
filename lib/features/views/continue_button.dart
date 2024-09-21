@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/button_params.dart';
 
 class ContinueButton extends StatelessWidget {
   const ContinueButton({
     super.key,
-    // required this.buttonParams,
+    required this.buttonParams,
     required this.onPressed,
   });
 
-  // final ButtonParams buttonParams;
+  final ButtonParams buttonParams;
   final Function() onPressed;
 
   @override

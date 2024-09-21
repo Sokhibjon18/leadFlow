@@ -1,13 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/success_view_params.dart';
 
 class SuccessView extends StatelessWidget {
-  // final SuccessViewParams params;
+  final SuccessViewParams params;
 
   const SuccessView({
     super.key,
-    // required this.params,
+    required this.params,
   });
 
   @override

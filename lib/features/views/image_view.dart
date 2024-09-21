@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/image_view_params.dart';
 
 class ImageView extends StatelessWidget {
   const ImageView({
     super.key,
-    // required this.imageParams,
+    required this.imageParams,
   });
 
-  // final ImageViewParams imageParams;
+  final ImageViewParams imageParams;
 
   @override
   Widget build(BuildContext context) {

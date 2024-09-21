@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/selection_params.dart';
 
 class MultiSelectView extends StatefulWidget {
   const MultiSelectView({
     super.key,
-    // required this.multiSelectParams,
+    required this.selectionParam,
     required this.onSelect,
   });
 
-  // final MultiSelectParams multiSelectParams;
+  final SelectionParams selectionParam;
   final Function(List<String> values) onSelect;
 
   @override

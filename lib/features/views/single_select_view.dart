@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lead_flow/data/models/selection_params.dart';
 
 class SingleSelectView extends StatefulWidget {
   const SingleSelectView({
     super.key,
-    // required this.singleSelectParams,
+    required this.selectionParam,
     required this.onSelect,
   });
 
-  // final SingleSelectParams singleSelectParams;
+  final SelectionParams selectionParam;
   final Function(String value) onSelect;
 
   @override
