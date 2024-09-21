@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> showMyDialog(BuildContext context) async {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // Orqaga bosish bilan dialogni yopib bo'lmaydi
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Funnel name'),
