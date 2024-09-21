@@ -22,7 +22,7 @@ class AuthPageChild extends StatelessWidget {
     if (state.error.isNotEmpty) {
       context.showSnackBar(state.error);
     } else if (state.authenticated) {
-      context.router.replace(const HomeRoute());
+      context.router.replace(HomeRoute());
     }
   }
 
@@ -54,12 +54,14 @@ logoAndTitle() => const Column(
       children: [
         Text(
           'eL',
-          style: TextStyle(fontSize: 70, color: Colors.purple, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 70, color: Colors.purple, fontWeight: FontWeight.bold),
         ),
         Text(
           'No code web-funnel builder with payment and analysis',
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.purple),
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.purple),
         ),
       ],
     );
@@ -125,21 +127,22 @@ class _AuthFormState extends State<_AuthForm> {
     }
   }
 
-  _getAuthButton({required String label, required Function() onTap}) => GestureDetector(
-    onTap: onTap,
-    child: Container(
-      width: 150,
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        label,
-        style: const TextStyle(color: Colors.white),
-      ),
-    ),
-  );
+  _getAuthButton({required String label, required Function() onTap}) =>
+      GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: 150,
+          margin: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(50),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            label,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      );
 }

@@ -17,20 +17,8 @@ class PriceView extends StatefulWidget {
 class _PriceViewState extends State<PriceView> {
   int selectedIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    // for (int i = 0; i < widget.params.length; i++) {
-    //   if (widget.params[i].selected) selectedIndex = i;
-    // }
-    // ScreenBuilder.subscriptionButton = widget.params[selectedIndex];
-    // FacebookPixel.track('InitiateCheckout');
-  }
-
-  String getDollars(String amount) {
-    final parts = amount.replaceAll('\$', '').split('.');
-    return parts[0];
-  }
+  String getDollars(String amount) =>
+      amount.replaceAll('\$', '').split('.').first;
 
   String getCents(String amount) {
     final parts = amount.replaceAll('\$', '').split('.');
