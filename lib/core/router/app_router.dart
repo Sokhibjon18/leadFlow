@@ -5,10 +5,10 @@ import 'package:lead_flow/core/router/app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SplashRoute.page, initial: true, path: '/splash/:id'),
+        AutoRoute(page: SplashRoute.page, path: '/splash/:id'),
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: FunnelBuilderProviderRoute.page),
+        AutoRoute(page: FunnelBuilderProviderRoute.page, initial: true),
       ];
 }

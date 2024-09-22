@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/core/widgets/common_text_filed.dart';
 import 'package:lead_flow/data/models/success_view_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/color_selection.dart';
 
 class SuccessDialog extends StatefulWidget {
@@ -57,7 +57,7 @@ class _SuccessDialogState extends State<SuccessDialog> {
           appUrl: appUrl,
           buttonColor: buttonColor,
         );
-        log(successViewParams.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(successViewParams);
       },
     );
   }

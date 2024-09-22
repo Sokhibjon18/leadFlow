@@ -1,8 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/data/models/image_view_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 
 class ImageDialog extends StatefulWidget {
   const ImageDialog({super.key});
@@ -52,7 +52,7 @@ class _ImageDialogState extends State<ImageDialog> {
       ),
       onCreate: () {
         ImageViewParams imageViewParams = ImageViewParams(imageLink: imageLink);
-        log(imageViewParams.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(imageViewParams);
       },
     );
   }

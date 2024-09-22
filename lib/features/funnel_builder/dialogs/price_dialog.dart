@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/core/widgets/common_text_filed.dart';
 import 'package:lead_flow/data/models/subscription_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/color_selection.dart';
 import 'package:lead_flow/utils/extensions.dart';
 
@@ -89,7 +89,7 @@ class _PriceDialogState extends State<PriceDialog> {
         SubscriptionButtonParams subscriptionButtonParams = SubscriptionButtonParams(title, priceId,
             oldPrice, price, unit, unitInterval, attention, selected, selectionColor);
         SubscriptionParams subscriptionParams = SubscriptionParams([subscriptionButtonParams]);
-        log(subscriptionParams.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(subscriptionParams);
       },
     );
   }

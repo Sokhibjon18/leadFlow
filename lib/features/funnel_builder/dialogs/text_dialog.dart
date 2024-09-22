@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/core/widgets/common_text_filed.dart';
 import 'package:lead_flow/data/models/text_view_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 
 class TextDialog extends StatefulWidget {
   const TextDialog({super.key});
@@ -38,7 +38,7 @@ class _TextDialogState extends State<TextDialog> {
       ),
       onCreate: () {
         TextViewParam textViewParam = TextViewParam(text: text);
-        log(textViewParam.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(textViewParam);
       },
     );
   }

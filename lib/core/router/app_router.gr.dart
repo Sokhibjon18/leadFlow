@@ -43,7 +43,7 @@ class FunnelBuilderProviderRoute
     extends _i6.PageRouteInfo<FunnelBuilderProviderRouteArgs> {
   FunnelBuilderProviderRoute({
     _i7.Key? key,
-    required String appName,
+    String? appName,
     List<_i6.PageRouteInfo>? children,
   }) : super(
           FunnelBuilderProviderRoute.name,
@@ -59,7 +59,8 @@ class FunnelBuilderProviderRoute
   static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<FunnelBuilderProviderRouteArgs>();
+      final args = data.argsAs<FunnelBuilderProviderRouteArgs>(
+          orElse: () => const FunnelBuilderProviderRouteArgs());
       return _i2.FunnelBuilderProviderPage(
         key: args.key,
         appName: args.appName,
@@ -71,12 +72,12 @@ class FunnelBuilderProviderRoute
 class FunnelBuilderProviderRouteArgs {
   const FunnelBuilderProviderRouteArgs({
     this.key,
-    required this.appName,
+    this.appName,
   });
 
   final _i7.Key? key;
 
-  final String appName;
+  final String? appName;
 
   @override
   String toString() {

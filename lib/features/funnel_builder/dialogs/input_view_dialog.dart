@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/core/widgets/common_text_filed.dart';
 import 'package:lead_flow/data/models/input_view_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/color_selection.dart';
 
 class InputViewDialog extends StatefulWidget {
@@ -68,7 +68,7 @@ class _InputViewDialogState extends State<InputViewDialog> {
           textColor: textColor,
           backgroundColor: backgroundColor,
         );
-        log(inputViewParams.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(inputViewParams);
       },
     );
   }
