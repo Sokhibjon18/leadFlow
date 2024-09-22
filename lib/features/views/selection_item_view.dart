@@ -68,6 +68,7 @@ class _SelectionItemViewState extends State<SelectionItemView> {
                           widget.params.text,
                           textAlign: widget.params.textAlign,
                           style: TextStyle(
+                            fontFamilyFallback: const ['Apple Color Emoji', 'Noto Color Emoji'],
                             color: widget.params.textColor,
                             fontSize: widget.params.size,
                             fontWeight: widget.params.isBold ? FontWeight.bold : FontWeight.normal,

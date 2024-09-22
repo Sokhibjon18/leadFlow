@@ -16,7 +16,7 @@ class FunnelBuilderProviderPage extends StatelessWidget {
       backgroundColor: const Color(0xFFF0F2F5),
       body: BlocProvider(
         create: (_) => FunnelBuilderCubit(),
-        child: FunnelBuilderBody(projectName: 'App Name'),
+        child: FunnelBuilderBody(projectName: appName ?? 'New App'),
       ),
     );
   }

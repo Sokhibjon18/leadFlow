@@ -10,18 +10,20 @@ import 'package:lead_flow/features/splash/model/client_data.dart';
 import 'package:lead_flow/utils/logger.dart';
 
 part 'funnel_builder_cubit.freezed.dart';
+
 part 'funnel_builder_state.dart';
 
 class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
   Map<int, List<ComponentParams>> params = {0: []};
   int selectedScreenIndex = 0;
   String appName = "";
+  int counter = 0;
 
   FunnelBuilderCubit() : super(const FunnelBuilderState.initial());
 
   addScreen() {
     params[params.length] = [];
-    int selectedScreenIndex = params.length -1;
+    int selectedScreenIndex = params.length - 1;
     emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? []));
   }
 
@@ -31,14 +33,16 @@ class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
   }
 
   addComponentParams(ComponentParams param) {
+    counter++;
     params[selectedScreenIndex]?.add(param);
     appLog(params.toString());
-    emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? []));
+    emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? [], counter));
   }
 
   removeComponentParams() {}
 
   publish(String appName) {
+    emit(const FunnelBuilderState.publishing());
     var screens = <ScreenDTO>[];
     params.forEach((key, value) {
       screens.add(
@@ -54,5 +58,13 @@ class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
 
     var uid = FirebaseAuth.instance.currentUser?.uid ?? 'notAuthorized';
     FirebaseFirestore.instance.collection(uid).doc(appName).set(data.toMap());
+
+    var baseLink = 'https://lead-flow-el.web.app/#/splash/$uid&$appName&';
+    emit(FunnelBuilderState.published(
+      '${baseLink}instagram',
+      '${baseLink}telegram',
+      '${baseLink}facebook',
+      '${baseLink}twitter',
+    ));
   }
 }
