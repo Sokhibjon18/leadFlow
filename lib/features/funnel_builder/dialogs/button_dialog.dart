@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/core/widgets/base_dialog.dart';
 import 'package:lead_flow/data/models/button_params.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/color_selection.dart';
 
 class ButtonDialog extends StatefulWidget {
@@ -51,7 +53,7 @@ class _ButtonDialogState extends State<ButtonDialog> {
       ),
       onCreate: () {
         ButtonParams buttonParams = ButtonParams(textColor, backgroundColor);
-        log(buttonParams.toString());
+        context.read<FunnelBuilderCubit>().addComponentParams(buttonParams);
       },
     );
   }

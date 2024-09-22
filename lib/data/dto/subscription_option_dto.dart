@@ -4,7 +4,7 @@ import 'package:lead_flow/data/models/subscription_params.dart';
 
 part 'subscription_option_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SubscriptionDTO {
   @JsonKey(name: "title")
   final String title;

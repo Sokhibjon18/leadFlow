@@ -21,8 +21,10 @@ ComponentDTO _$ComponentDTOFromJson(Map<String, dynamic> json) => ComponentDTO(
 Map<String, dynamic> _$ComponentDTOToJson(ComponentDTO instance) =>
     <String, dynamic>{
       'type': instance.type,
-      'params': instance.params,
+      'params': instance.params.toJson(),
       'imageLink': instance.imageLink,
-      'textViewOptions': instance.textViewOptions,
-      'subscriptionOptions': instance.subscriptionOptions,
+      'textViewOptions':
+          instance.textViewOptions?.map((e) => e.toJson()).toList(),
+      'subscriptionOptions':
+          instance.subscriptionOptions?.map((e) => e.toJson()).toList(),
     };

@@ -29,8 +29,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    final settingsUri = Uri.base.toString();
-    log(settingsUri);
     var splitId = widget.id?.split('&');
     if((splitId?.length ?? 0) < 3) {
       context.router.replace(const AuthRoute());
@@ -44,7 +42,6 @@ class _SplashPageState extends State<SplashPage> {
 
   Future checkDestination() async {
     if (platform != null && uid != null && project != null) {
-      log('message 1');
       var body = await repository.getClientFunnel(uid!, project!, platform!);
       if (body == null) {
         context.router.replace(const AuthRoute());
@@ -58,7 +55,6 @@ class _SplashPageState extends State<SplashPage> {
         ),
       );
     } else {
-      log('message 3');
       context.router.replace(const AuthRoute());
     }
   }

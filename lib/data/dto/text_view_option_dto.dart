@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'text_view_option_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class TextViewOptionDTO {
   @JsonKey(name: "text")
   final String text;

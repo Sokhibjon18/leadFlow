@@ -13,7 +13,7 @@ import 'package:lead_flow/features/views/continue_button.dart';
 import 'package:lead_flow/features/views/image_view.dart';
 import 'package:lead_flow/features/views/input_view.dart';
 import 'package:lead_flow/features/views/multi_select_view.dart';
-import 'package:lead_flow/features/views/payment/payment_view.dart';
+import 'package:lead_flow/features/views/payment_view.dart';
 import 'package:lead_flow/features/views/price_view.dart';
 import 'package:lead_flow/features/views/single_select_view.dart';
 import 'package:lead_flow/features/views/success_view.dart';

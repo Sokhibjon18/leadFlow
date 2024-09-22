@@ -9,6 +9,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: FunnelBuilderRoute.page),
+        AutoRoute(page: FunnelBuilderProviderRoute.page),
       ];
 }

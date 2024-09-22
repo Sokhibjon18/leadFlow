@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lead_flow/core/router/app_router.gr.dart';
-import 'package:lead_flow/core/widgets/commons/common_text_filed.dart';
+import 'package:lead_flow/core/widgets/common_text_filed.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text('OK'),
               onPressed: () {
                 context.router
-                    .push(FunnelBuilderRoute(projectName: nameController.text));
+                    .push(FunnelBuilderProviderRoute(appName: nameController.text));
               },
             ),
           ],

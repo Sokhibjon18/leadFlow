@@ -14,6 +14,6 @@ BodyDTO _$BodyDTOFromJson(Map<String, dynamic> json) => BodyDTO(
     );
 
 Map<String, dynamic> _$BodyDTOToJson(BodyDTO instance) => <String, dynamic>{
-      'screens': instance.screens,
+      'screens': instance.screens.map((e) => e.toJson()).toList(),
       'appName': instance.appName,
     };

@@ -16,7 +16,7 @@ import 'package:lead_flow/utils/extensions.dart';
 
 part 'component_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ComponentDTO {
   @JsonKey(name: "type")
   final String type;
@@ -37,7 +37,7 @@ class ComponentDTO {
     this.subscriptionOptions,
   });
 
-  ComponentDTO? fromParams(ComponentParams componentParam, [String? appName]) {
+  static ComponentDTO fromParams(ComponentParams componentParam, [String? appName]) {
     switch (componentParam.runtimeType) {
       case == TextViewParam:
         var param = componentParam as TextViewParam;
@@ -107,8 +107,13 @@ class ComponentDTO {
             buttonColor: param.buttonColor.toHex(),
           ),
         );
+
     }
-    return null;
+    return ComponentDTO(
+      type: 'textView',
+      params: ParamsDTO(),
+      textViewOptions: [TextViewOptionDTO(text: 'Error on generating params')],
+    );
   }
 
   ComponentParams toParams(String appName) {

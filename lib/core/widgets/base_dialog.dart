@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class BaseDialog extends StatelessWidget {
@@ -33,9 +34,7 @@ class BaseDialog extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: context.router.maybePop,
                     child: const Text(
                       'Cancel',
                       style:
@@ -49,7 +48,7 @@ class BaseDialog extends StatelessWidget {
                     style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF007BFF)),
                     onPressed: () {
                       onCreate();
-                      Navigator.of(context).pop();
+                      context.router.maybePop();
                     },
                     child: const Text(
                       'Create',

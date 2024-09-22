@@ -3,7 +3,7 @@ import 'package:lead_flow/data/dto/component_dto.dart';
 
 part 'screen_dto.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ScreenDTO {
   @JsonKey(name: "components")
   final List<ComponentDTO> components;

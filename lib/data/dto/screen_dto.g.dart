@@ -15,7 +15,7 @@ ScreenDTO _$ScreenDTOFromJson(Map<String, dynamic> json) => ScreenDTO(
     );
 
 Map<String, dynamic> _$ScreenDTOToJson(ScreenDTO instance) => <String, dynamic>{
-      'components': instance.components,
+      'components': instance.components.map((e) => e.toJson()).toList(),
       'question': instance.question,
       'name': instance.name,
     };

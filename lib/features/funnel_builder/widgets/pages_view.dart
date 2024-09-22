@@ -1,5 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 
 class PagesView extends StatefulWidget {
   const PagesView({super.key});
@@ -10,7 +12,8 @@ class PagesView extends StatefulWidget {
 
 class _PagesViewState extends State<PagesView> {
   int pagesCount = 1;
-  int selectedIndex = 0;
+  late var funnelCubit = context.read<FunnelBuilderCubit>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,7 +50,7 @@ class _PagesViewState extends State<PagesView> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          selectedIndex = index;
+                          funnelCubit.selectedScreenIndex = index;
                         });
                       },
                       child: Container(
@@ -57,7 +60,7 @@ class _PagesViewState extends State<PagesView> {
                           color: const Color(0xFFE0E0E0),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: selectedIndex == index
+                            color: funnelCubit.selectedScreenIndex == index
                                 ? const Color(0xFF4CAF50)
                                 : const Color(0xFFE0E0E0),
                             width: 1.7,
@@ -83,6 +86,7 @@ class _PagesViewState extends State<PagesView> {
         ),
         GestureDetector(
           onTap: () {
+            funnelCubit.addScreen();
             setState(() {
               pagesCount++;
             });
