@@ -4,7 +4,6 @@ import 'package:lead_flow/data/models/button_params.dart';
 import 'package:lead_flow/data/models/component_params.dart';
 import 'package:lead_flow/data/models/image_view_params.dart';
 import 'package:lead_flow/data/models/input_view_params.dart';
-import 'package:lead_flow/data/models/payment_params.dart';
 import 'package:lead_flow/data/models/selection_params.dart';
 import 'package:lead_flow/data/models/subscription_params.dart';
 import 'package:lead_flow/data/models/success_view_params.dart';
@@ -13,7 +12,6 @@ import 'package:lead_flow/features/views/continue_button.dart';
 import 'package:lead_flow/features/views/image_view.dart';
 import 'package:lead_flow/features/views/input_view.dart';
 import 'package:lead_flow/features/views/multi_select_view.dart';
-import 'package:lead_flow/features/views/payment_view.dart';
 import 'package:lead_flow/features/views/price_view.dart';
 import 'package:lead_flow/features/views/single_select_view.dart';
 import 'package:lead_flow/features/views/success_view.dart';
@@ -110,8 +108,6 @@ class CarouselItem extends StatelessWidget {
         );
       case == SubscriptionParams:
         return PriceView(params: (params as SubscriptionParams).buttonParams);
-      case == PaymentParams:
-        return PaymentView(nextScreen: nextPressed);
       default:
         return const SizedBox();
     }

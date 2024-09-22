@@ -87,29 +87,18 @@ class SuccessView extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: _launchDownloadUrl,
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
-          // backgroundColor: params.buttonColor,
+          backgroundColor: params.buttonColor,
           padding: const EdgeInsets.symmetric(vertical: 26),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: Text(
-          'Download',
-          // 'Download ${params.appName}',
+          'Download ${params.appName}',
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
     );
-  }
-
-  Future<void> _launchDownloadUrl() async {
-    // final Uri url = Uri.parse(params.appUrl);
-    // if (await canLaunchUrl(url)) {
-    //   await launchUrl(url);
-    // } else {
-    //   debugPrint('Could not launch $url');
-    // }
   }
 
   Widget _buildSupportSection() {
@@ -130,13 +119,12 @@ class SuccessView extends StatelessWidget {
               children: [
                 const TextSpan(text: 'Contact our friendly support team\n'),
                 TextSpan(
-                  text: 'support email',
-                  // text: params.supportEmail,
+                  text: 'funnelsupport@gmail.com',
                   style: const TextStyle(
                     decoration: TextDecoration.underline,
                     color: Colors.blue,
                   ),
-                  recognizer: TapGestureRecognizer()..onTap = _launchEmailClient,
+                  recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
               ],
             ),
@@ -145,17 +133,5 @@ class SuccessView extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> _launchEmailClient() async {
-    //   final Uri emailLaunchUri = Uri(
-    //     scheme: 'mailto',
-    //     path: params.supportEmail,
-    //   );
-    //   if (await canLaunchUrl(emailLaunchUri)) {
-    //     await launchUrl(emailLaunchUri);
-    //   } else {
-    //     debugPrint('Could not launch $emailLaunchUri');
-    //   }
   }
 }

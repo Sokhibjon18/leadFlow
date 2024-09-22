@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lead_flow/data/models/selection_params.dart';
+import 'package:lead_flow/features/views/selection_item_view.dart';
 
 class SingleSelectView extends StatefulWidget {
   const SingleSelectView({
@@ -21,62 +22,32 @@ class _SingleSelectViewState extends State<SingleSelectView> {
   onSelected(String text, int index) {
     selectedIndex = index;
     setState(() {});
-    // widget.onSelect(widget.singleSelectParams.textOptions[index]);
+    widget.onSelect(widget.selectionParam.textOptions[index]);
   }
 
   @override
   Widget build(BuildContext context) {
-    return true
-        // widget.singleSelectParams.isGrid
-        ? GridView(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              childAspectRatio: 0.9,
+    return ListView(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      children: List.generate(
+        widget.selectionParam.textOptions.length,
+        (index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: SelectionItemView(
+              params: widget.selectionParam.toSelectionItemParam(
+                text: widget.selectionParam.textOptions[index],
+                size: widget.selectionParam.size,
+                isSelected: selectedIndex == index,
+                onSelect: onSelected,
+                index: index,
+              ),
+              isCheckable: false,
             ),
-            // children: List.generate(
-            //   widget.singleSelectParams.textOptions.length,
-            //   (index) {
-            //     return SelectionItemView(
-            //       params: widget.singleSelectParams.toSelectionItemParams(
-            //           text: widget.singleSelectParams.textOptions[index],
-            //           size: widget.singleSelectParams.size,
-            //           isSelected: selectedIndex == index,
-            //           onSelect: onSelected,
-            //           index: index,
-            //           imagePath: widget.singleSelectParams.imagePaths?[index],
-            //           icon: widget.singleSelectParams.icons?[index]),
-            //       isCheckable: false,
-            //     );
-            //   },
-            // ),
-          )
-        : SizedBox();
-    // : ListView(
-    //     shrinkWrap: true,
-    //     physics: const NeverScrollableScrollPhysics(),
-    //     children: List.generate(
-    //       widget.singleSelectParams.textOptions.length,
-    //       (index) {
-    //         return Padding(
-    //           padding: const EdgeInsets.symmetric(vertical: 4),
-    //           child: SelectionItemView(
-    //             params: widget.singleSelectParams.toSelectionItemParams(
-    //               text: widget.singleSelectParams.textOptions[index],
-    //               size: widget.singleSelectParams.size,
-    //               isSelected: selectedIndex == index,
-    //               onSelect: onSelected,
-    //               index: index,
-    //               icon: widget.singleSelectParams.icons?[index],
-    //             ),
-    //             isCheckable: false,
-    //           ),
-    //         );
-    //       },
-    //     ),
-    //   );
+          );
+        },
+      ),
+    );
   }
 }

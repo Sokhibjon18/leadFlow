@@ -13,16 +13,12 @@ class InputView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hslColor = HSLColor.fromColor(
-      Colors.white,
-      // inputViewParams.textColor,
-    );
+    final hslColor = HSLColor.fromColor(inputViewParams.textColor);
     final hintColor = hslColor.withLightness((hslColor.lightness * 0.7).clamp(0.0, 1.0));
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.yellow,
-        // color: inputViewParams.backgroundColor,
+        color: inputViewParams.backgroundColor,
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(color: Colors.grey.shade300),
       ),
@@ -31,15 +27,14 @@ class InputView extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         cursorColor: hintColor.toColor(),
         decoration: InputDecoration(
-          hintText: 'input here',
-          // hintText: inputViewParams.inputName,
+          hintText: inputViewParams.hint,
           hintStyle: TextStyle(color: hintColor.toColor()),
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         ),
         style: TextStyle(
-          fontSize: 16, color: Colors.white,
-          // color: inputViewParams.textColor,
+          fontSize: 16,
+          color: inputViewParams.textColor,
         ),
       ),
     );

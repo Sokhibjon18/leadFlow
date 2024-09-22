@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lead_flow/data/models/subscription_params.dart';
+import 'package:lead_flow/utils/extensions.dart';
 
 class PriceView extends StatefulWidget {
   const PriceView({
@@ -17,8 +18,7 @@ class PriceView extends StatefulWidget {
 class _PriceViewState extends State<PriceView> {
   int selectedIndex = 0;
 
-  String getDollars(String amount) =>
-      amount.replaceAll('\$', '').split('.').first;
+  String getDollars(String amount) => amount.replaceAll('\$', '').split('.').first;
 
   String getCents(String amount) {
     final parts = amount.replaceAll('\$', '').split('.');
@@ -29,13 +29,11 @@ class _PriceViewState extends State<PriceView> {
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(
-        // widget.params.length,
-        2,
+        widget.params.length,
         (index) {
-          // var buttonParam = widget.params[index];
+          var buttonParam = widget.params[index];
           return GestureDetector(
             onTap: () {
-              // ScreenBuilder.subscriptionButton = buttonParam;
               selectedIndex = index;
               setState(() {});
             },
@@ -45,27 +43,23 @@ class _PriceViewState extends State<PriceView> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(12),
-                    margin: EdgeInsets.only(
-                        // top: buttonParam.attention.isNotEmpty ? 12 : 0,
-                        ),
+                    margin: EdgeInsets.only(top: buttonParam.attention.isNotEmpty ? 12 : 0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
                         color: index == selectedIndex
-                            ? Colors.green
-                            // ? widget.params[index].selectionColor.colorify()
+                            ? widget.params[index].selectionColor.colorify()
                             : Colors.grey.shade300,
                         width: 2,
                       ),
                     ),
                     child: Row(
                       children: [
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             AutoSizeText(
-                              'title',
-                              // buttonParam.title,
+                              buttonParam.title,
                               style: const TextStyle(fontWeight: FontWeight.w700),
                               maxFontSize: 24,
                               minFontSize: 8,
@@ -74,8 +68,7 @@ class _PriceViewState extends State<PriceView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AutoSizeText(
-                                  'old price',
-                                  // buttonParam.oldPrice,
+                                  buttonParam.oldPrice,
                                   style: const TextStyle(
                                     decoration: TextDecoration.lineThrough,
                                     color: Colors.grey,
@@ -86,8 +79,7 @@ class _PriceViewState extends State<PriceView> {
                                 ),
                                 const SizedBox(width: 8),
                                 AutoSizeText(
-                                  'price',
-                                  // buttonParam.price,
+                                  buttonParam.price,
                                   style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
@@ -105,8 +97,7 @@ class _PriceViewState extends State<PriceView> {
                           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                           decoration: BoxDecoration(
                               color: selectedIndex == index
-                                  ? Colors.blueGrey
-                                  // ? widget.params[index].selectionColor.colorify().withOpacity(0.75)
+                                  ? widget.params[index].selectionColor.colorify().withOpacity(0.75)
                                   : Colors.grey.shade300,
                               borderRadius: BorderRadius.circular(12)),
                           child: Row(
@@ -122,8 +113,7 @@ class _PriceViewState extends State<PriceView> {
                               ),
                               const SizedBox(width: 4),
                               AutoSizeText(
-                                getDollars('200'),
-                                // getDollars(buttonParam.unit),
+                                getDollars(buttonParam.unit),
                                 style: const TextStyle(fontWeight: FontWeight.w700, height: 1),
                                 maxFontSize: 48,
                                 minFontSize: 16,
@@ -133,15 +123,13 @@ class _PriceViewState extends State<PriceView> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   AutoSizeText(
-                                    getCents('24'),
-                                    // getCents(buttonParam.unit),
+                                    getCents(buttonParam.unit),
                                     style: const TextStyle(fontWeight: FontWeight.w900),
                                     maxFontSize: 18,
                                     minFontSize: 8,
                                   ),
                                   AutoSizeText(
-                                    'unit interval',
-                                    // buttonParam.unitInterval,
+                                    buttonParam.unitInterval,
                                     style: const TextStyle(height: 0.8),
                                     maxFontSize: 18,
                                     minFontSize: 8,
@@ -154,8 +142,7 @@ class _PriceViewState extends State<PriceView> {
                       ],
                     ),
                   ),
-                  // buttonParam.attention.isNotEmpty
-                  true
+                  buttonParam.attention.isNotEmpty
                       ? Positioned(
                           right: 0,
                           child: Container(
@@ -166,12 +153,10 @@ class _PriceViewState extends State<PriceView> {
                                 topLeft: Radius.circular(16),
                                 bottomLeft: Radius.circular(16),
                               ),
-                              color: Colors.yellow,
-                              // color: widget.params[index].selectionColor.colorify(),
+                              color: widget.params[index].selectionColor.colorify(),
                             ),
                             child: Text(
-                              'attention',
-                              // buttonParam.attention,
+                              buttonParam.attention,
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
