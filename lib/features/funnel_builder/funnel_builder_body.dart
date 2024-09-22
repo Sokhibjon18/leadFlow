@@ -46,18 +46,6 @@ class FunnelBuilderBody extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: () {
-                    context.read<FunnelBuilderCubit>().publish(projectName);
-                  },
-                  child: const Text(
-                    'Pubish',
-                    style:
-                        TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
-                  ),
-                ),
               ],
             ),
           ),
@@ -67,7 +55,7 @@ class FunnelBuilderBody extends StatelessWidget {
               children: [
                 Text(projectName, style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 16),
-                const PhoneParamBuilder(),
+                Expanded(child: const PhoneParamBuilder()),
               ],
             ),
           ),
@@ -85,9 +73,28 @@ class FunnelBuilderBody extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Components',
-                        style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'Components',
+                            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 24),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                              onPressed: () {
+                                context.read<FunnelBuilderCubit>().publish(projectName);
+                              },
+                              child: const Text(
+                                'Pubish',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 16),
                       Expanded(

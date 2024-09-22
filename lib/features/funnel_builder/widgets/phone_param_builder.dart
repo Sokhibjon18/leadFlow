@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/data/models/button_params.dart';
@@ -32,25 +34,28 @@ class _PhoneParamBuilderState extends State<PhoneParamBuilder> {
   Widget build(BuildContext context) {
     return BlocBuilder<FunnelBuilderCubit, FunnelBuilderState>(
       builder: (context, state) {
-        state.mapOrNull(currentScreenParams: (paramsState) {
-          return Expanded(
-            child: Container(
-              width: 390,
-              decoration: BoxDecoration(
-                color: const Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: const Color(0xFFC0C0C0), width: 2),
-              ),
-              child: Column(
-                children: List.generate(
-                  paramsState.params.length,
-                  (index) => getCorrespondingView(paramsState.params[index]),
+        log(state.toString());
+        return state.maybeMap(
+          currentScreenParams: (paramsState) {
+            return Expanded(
+              child: Container(
+                width: 390,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF2F2F2),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: const Color(0xFFC0C0C0), width: 2),
+                ),
+                child: Column(
+                  children: List.generate(
+                    paramsState.params.length,
+                    (index) => getCorrespondingView(paramsState.params[index]),
+                  ),
                 ),
               ),
-            ),
-          );
-        });
-        return Container();
+            );
+          },
+          orElse: () => Container(),
+        );
       },
     );
   }

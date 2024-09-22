@@ -51,6 +51,7 @@ class _PagesViewState extends State<PagesView> {
                       onTap: () {
                         setState(() {
                           funnelCubit.selectedScreenIndex = index;
+                          funnelCubit.screenSelected(index);
                         });
                       },
                       child: Container(

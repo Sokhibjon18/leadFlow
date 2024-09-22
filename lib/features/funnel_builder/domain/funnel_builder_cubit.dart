@@ -21,9 +21,14 @@ class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
 
   addScreen() {
     params[params.length] = [];
+    int selectedScreenIndex = params.length -1;
+    emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? []));
   }
 
-  removeScreen(int index) {}
+  screenSelected(index) {
+    int selectedScreenIndex = index;
+    emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? []));
+  }
 
   addComponentParams(ComponentParams param) {
     params[selectedScreenIndex]?.add(param);
