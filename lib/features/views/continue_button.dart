@@ -21,15 +21,13 @@ class ContinueButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.blue,
-          // color: buttonParams.backgroundColor,
+          color: buttonParams.backgroundColor,
         ),
         child: Text(
           'Continue',
           style: TextStyle(
             fontSize: 18,
-            color: Colors.white,
-            // color: buttonParams.textColor,
+            color: buttonParams.textColor,
           ),
         ),
       ),

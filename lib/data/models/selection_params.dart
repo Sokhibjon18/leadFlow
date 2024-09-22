@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lead_flow/data/models/component_params.dart';
+import 'package:lead_flow/data/models/selection_item_param.dart';
 
 class SelectionParams implements ComponentParams {
   final Color selectionColor;
@@ -19,6 +20,28 @@ class SelectionParams implements ComponentParams {
     required this.selectionColor,
     required this.textOptions,
   });
+
+  SelectionItemParam toSelectionItemParam({
+    required String text,
+    required double size,
+    required bool isSelected,
+    required Function(String, int) onSelect,
+    required int index,
+    String? imagePath,
+    String? icon,
+  }) =>
+      SelectionItemParam(
+          text: text,
+          size: size,
+          textColor: textColor,
+          textAlign: textAlign,
+          backgroundColor: backgroundColor,
+          onSelect: onSelect,
+          isSelected: isSelected,
+          selectionColor: selectionColor,
+          index: index,
+          imagePath: imagePath,
+          icon: icon);
 
   @override
   String toString() {
