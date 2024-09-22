@@ -8,7 +8,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SplashRoute.page, initial: true, path: '/splash/:id'),
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: FunnelRoute.page),
         AutoRoute(page: FunnelBuilderProviderRoute.page),
       ];
 }

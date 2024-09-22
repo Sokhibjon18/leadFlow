@@ -32,7 +32,7 @@ class SplashRepository {
 
   Future _incrementMediaCount(DocumentReference docRef, String mediaType) async {
     try {
-      await docRef.update({'instagramCount': FieldValue.increment(1)});
+      await docRef.update({mediaType: FieldValue.increment(1)});
     } catch (e) {
       log('Error incrementing Instagram count: $e');
     }

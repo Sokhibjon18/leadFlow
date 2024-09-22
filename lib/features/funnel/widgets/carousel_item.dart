@@ -43,7 +43,10 @@ class CarouselItem extends StatelessWidget {
             screen.components.length,
             (index) {
               var param = screen.components[index].toParams(appName);
-              return getCorrespondingView(param);
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: getCorrespondingView(param),
+              );
             },
           ),
         ),

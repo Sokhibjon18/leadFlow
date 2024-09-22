@@ -6,6 +6,7 @@ import 'package:lead_flow/core/di/injection.dart';
 import 'package:lead_flow/core/router/app_router.gr.dart';
 import 'package:lead_flow/features/splash/data/splash_repository.dart';
 import 'package:lead_flow/utils/extensions.dart';
+import 'package:lead_flow/utils/logger.dart';
 
 @RoutePage()
 class SplashPage extends StatefulWidget {
@@ -47,13 +48,13 @@ class _SplashPageState extends State<SplashPage> {
         context.router.replace(const AuthRoute());
         return;
       }
-      context.router.replace(
-        FunnelRoute(
+      context.router.replaceAll(
+[        FunnelRoute(
           bodyDTO: body,
           ownerUid: uid!,
           project: project!,
         ),
-      );
+      ]);
     } else {
       context.router.replace(const AuthRoute());
     }
