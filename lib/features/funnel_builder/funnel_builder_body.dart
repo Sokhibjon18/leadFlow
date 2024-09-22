@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lead_flow/features/funnel_builder/domain/funnel_builder_cubit.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/components_view.dart';
 import 'package:lead_flow/features/funnel_builder/widgets/pages_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lead_flow/features/funnel_builder/widgets/phone_param_builder.dart';
 
-class FunnelBuilderPage extends StatelessWidget {
-  const FunnelBuilderPage({super.key, required this.projectName});
+class FunnelBuilderBody extends StatelessWidget {
+  const FunnelBuilderBody({super.key, required this.projectName});
 
   final String projectName;
 
@@ -48,13 +49,13 @@ class FunnelBuilderPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                  onPressed: (){
+                  onPressed: () {
                     context.read<FunnelBuilderCubit>().publish(projectName);
                   },
                   child: const Text(
                     'Pubish',
                     style:
-                    TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                        TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
                   ),
                 ),
               ],
@@ -66,12 +67,7 @@ class FunnelBuilderPage extends StatelessWidget {
               children: [
                 Text(projectName, style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600)),
                 const SizedBox(height: 16),
-                Expanded(
-                  child: Image.asset(
-                    'assets/images/phone_corpse.png',
-                    width: 433,
-                  ),
-                ),
+                const PhoneParamBuilder(),
               ],
             ),
           ),

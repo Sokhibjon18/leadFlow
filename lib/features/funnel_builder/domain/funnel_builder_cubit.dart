@@ -9,9 +9,8 @@ import 'package:lead_flow/data/models/component_params.dart';
 import 'package:lead_flow/features/splash/model/client_data.dart';
 import 'package:lead_flow/utils/logger.dart';
 
-part 'funnel_builder_state.dart';
-
 part 'funnel_builder_cubit.freezed.dart';
+part 'funnel_builder_state.dart';
 
 class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
   Map<int, List<ComponentParams>> params = {0: []};
@@ -29,6 +28,7 @@ class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
   addComponentParams(ComponentParams param) {
     params[selectedScreenIndex]?.add(param);
     appLog(params.toString());
+    emit(FunnelBuilderState.currentScreenParams(params[selectedScreenIndex] ?? []));
   }
 
   removeComponentParams() {}
@@ -44,7 +44,8 @@ class FunnelBuilderCubit extends Cubit<FunnelBuilderState> {
       );
     });
     var body = BodyDTO(screens: screens, appName: appName);
-    var data = ClientData(form: body.toJson(), instagramCount: 0, telegramCount: 0, twitterCount: 0);
+    var data =
+        ClientData(form: body.toJson(), instagramCount: 0, telegramCount: 0, twitterCount: 0);
 
     var uid = FirebaseAuth.instance.currentUser?.uid ?? 'notAuthorized';
     FirebaseFirestore.instance.collection(uid).doc(appName).set(data.toMap());
